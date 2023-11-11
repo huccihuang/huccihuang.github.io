@@ -16,7 +16,7 @@ timezone: Asia/Shanghai
 
 title: Hucci Blog # the main title
 
-tagline: Welcome to Hucci's blog # it will display as the sub-title
+tagline: Welcome to Hucci blog # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   This is where Hucci writing.
