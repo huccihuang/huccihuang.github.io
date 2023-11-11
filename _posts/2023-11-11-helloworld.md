@@ -1,7 +1,7 @@
 ---
 title: Hello world
 date: 2023-11-11 11:00:00 +0800
-categories: []
+categories: [生活]
 tags: []
 pin: true
 ---
