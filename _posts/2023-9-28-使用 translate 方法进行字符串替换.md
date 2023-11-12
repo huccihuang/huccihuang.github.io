@@ -1,6 +1,6 @@
 ---
 title: 使用 translate 方法进行字符串替换
-date: 2023-11-11 21:00:00 +0800
+date: 2023-9-28 21:00:00 +0800
 categories: [短文, 技术]
 tags: [Python]
 pin: false
