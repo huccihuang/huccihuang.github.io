@@ -3,7 +3,6 @@ title: Hello world!
 date: 2023-9-28 21:00:00 +0800
 categories: []
 tags: []
-pin: true
 ---
 
 这个博客用于记录
