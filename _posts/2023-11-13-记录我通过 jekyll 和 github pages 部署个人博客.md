@@ -38,7 +38,7 @@ gem install jekyll
 
 ## 选择适合的主题
 
-时至今日，许多伟大的开发者贡献出了风格各异的主题，在 [jekyll themes](http://jekyllthemes.org) 可以看到各主题的 demo。
+时至今日，许多伟大的开发者贡献出了风格各异的主题，在搜索框输入 jekyll themes 就可以看到各种各样的主题。
 
 选择的时候注意以下几点：
 
