@@ -52,7 +52,7 @@ gem install jekyll
 
 ### 使用他人模板
 
-根据 [Chirpy 的官方文档](https://chirpy.cotes.page/posts/getting-started/)，需要先在 github 中对 https://github.com/cotes2020/chirpy-starter 选择 Use this template 来创建一个新仓库，并将这个仓库命名为 `githubusername.github.io` 。
+根据 [Chirpy 的官方文档](https://chirpy.cotes.page/posts/getting-started/)，需要先在 github 中对 https://github.com/cotes2020/chirpy-starter 选择 Use this template 来创建一个新仓库，并将这个仓库命名为 `username.github.io` 。username 指的是 github 中的 username。
 
 别的主题方法稍有差别，具体看文档。fork 仓库也是常见的方法。
 
