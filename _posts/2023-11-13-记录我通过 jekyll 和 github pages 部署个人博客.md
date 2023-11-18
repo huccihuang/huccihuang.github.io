@@ -6,6 +6,8 @@ tags: [github]
 pin: false
 ---
 
+记录一下我折腾的过程，以供后人参考。
+
 ## 准备动作
 
 需要先准备好的有 github 账号、安装 git、安装 ruby 和 jekyll。
