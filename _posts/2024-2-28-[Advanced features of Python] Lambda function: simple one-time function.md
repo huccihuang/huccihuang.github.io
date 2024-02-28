@@ -1,5 +1,5 @@
 ---
-title: [Advanced features of Python] Lambda function: simple one-time function
+title: "[Advanced features of Python] Lambda function: simple one-time function"
 date: 2024-2-28 12:00 +0800
 categories: [Python 高级特性]
 tags: [Python, Lambda function]
