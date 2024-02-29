@@ -66,7 +66,7 @@ In this example, we passed in lambda function could square numbers. So what we g
 
 I want to share my favorite way to use lambda function, and that is with dictionary. When we need to write multiple conditional branches, we need to write multiple `elif`, which is not Pythonic. But using lambda function with dictionary could solve this problem very well.
 
-For example, now we need a function that can return different strings based on students' scores.
+For example, now we need a function that, based on the user's level, adds corresponding credits to the user each time they log in.
 
 ```python
 def stu_score_map(x):
@@ -78,9 +78,9 @@ def stu_score_map(x):
         return "Bad"
 ```
 
-If there were more conditions, this function would be longer.
+If there were more user levels, this function would be longer.
 
-Now I'm going to use a lambda with a dictionary.
+Now I'm going to use dictionary.
 
 ```python
 stu_score_map = lambda x: {
@@ -92,21 +92,9 @@ stu_score_map = lambda x: {
 print(stu_score_map(75))
 ```
 
-It is shorter than before, and more readable.
+It is more concise than the previous one, and is also more readable.
 
-The lambda function will return the value with key True. And the keys of dictionary are bool expression that become True or False depending on the input parameter x.
-
-If you want different operations based on the student's score, you can change value to a function name or an lambda function.
-
-```python
-stu_score_map = lambda x: {
-    x > 85: "Good",
-    60 <= x <= 85: lambda y: y+10, # add 10 to score between 60 and 85
-    x < 60: "Bad"
-}[True]
-
-print(stu_score_map(70)(70))
-```
+`level_credit_map[user.level]` will return the corresponding lambda function according to `user.level` , and the following `user.credit` would be argument passed into the lambda function.
 
 # At last
 
