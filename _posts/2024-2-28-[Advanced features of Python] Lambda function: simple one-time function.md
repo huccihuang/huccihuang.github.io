@@ -64,18 +64,20 @@ In this example, we passed in lambda function could square numbers. So what we g
 
 ## Use with dictionary
 
-I want to share my favorite way to use lambda function, and that is with dictionary. When we need to write multiple conditional branches, we need to write multiple `elif`, which is not Pythonic. But using lambda function with dictionary could solve this problem very well.
+I want to share my favorite way to use lambda function, as dictionary value. When we need to write multiple conditional branches, we need to write multiple else if, which is not Pythonic. But using lambda function as dictionary value could solve this problem very well.
 
 For example, now we need a function that, based on the user's level, adds corresponding credits to the user each time they log in.
 
 ```python
-def stu_score_map(x):
-    if x > 85:
-        return "Good"
-    elif 60 <= x <= 85:
-        return "Average"
-    else:
-        return "Bad"
+def user_logging(user):
+    if user.level == 1:
+        user.credits += 2
+    elif user.level == 2:
+        user.credits += 5
+    elif user.level == 3:
+        user.credits += 10
+    elif user.level == 4:
+        user.credits += 20
 ```
 
 If there were more user levels, this function would be longer.
@@ -83,13 +85,14 @@ If there were more user levels, this function would be longer.
 Now I'm going to use dictionary.
 
 ```python
-stu_score_map = lambda x: {
-    x > 85: "Good",
-    60 <= x <= 85: "Average",
-    x < 60: "Bad"
-}[True]
-
-print(stu_score_map(75))
+def user_logging(user):
+    level_credit_map = {
+        1: lambda x: x+2,
+        2: lambda x: x+5,
+        3: lambda x: x+10,
+				4: lambda x: x+20
+    }
+    user.credit = level_credit_map[user.level](user.credit)
 ```
 
 It is more concise than the previous one, and is also more readable.
