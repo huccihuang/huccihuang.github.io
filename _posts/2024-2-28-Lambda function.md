@@ -1,7 +1,7 @@
 ---
-title: "[Advanced features of Python] Lambda function: simple one-time function"
+title: "Python Features: Lambda function - Simple one-time function"
 date: 2024-2-28 12:00 +0800
-categories: [Python 高级特性]
+categories: [Python Features]
 tags: [Python, Lambda function]
 ---
 
@@ -11,7 +11,7 @@ Through this article, you will learn how to create and use lambda functions and 
 
 Let’s go ahead!
 
-# How to construct a lambda function
+## How to construct a lambda function
 
 This is a function, to add 2 numbers.
 
@@ -32,9 +32,9 @@ Let’s take a look at the construction of this lambda function. The add at the 
 
 Easy to understand, right? Now Let’s see how to use the lambda function in practical code.
 
-# How to use lambda function
+## How to use lambda function
 
-## Basic usage
+### Basic usage
 
 The method of using lambda function is same as ordinary functions, function name and arguments.
 
@@ -43,7 +43,7 @@ add = lambda a,b: a+b
 print(add(1,2))
 ```
 
-## Use lambda function as a parameter
+### Use lambda function as a parameter
 
 An important use of lambda functions is to use them as parameters of other functions, such as map and sorted functions that require functions as parameters.
 
@@ -62,7 +62,7 @@ In this example, we passed in lambda function could square numbers. So what we g
 [1, 4, 9, 16, 25]
 ```
 
-## Use with dictionary
+### Use with dictionary
 
 I want to share my favorite way to use lambda function, as dictionary value. When we need to write multiple conditional branches, we need to write multiple else if, which is not Pythonic. But using lambda function as dictionary value could solve this problem very well.
 
@@ -99,7 +99,7 @@ It is more concise than the previous one, and is also more readable.
 
 `level_credit_map[user.level]` will return the corresponding lambda function according to `user.level` , and the following `user.credit` would be argument passed into the lambda function.
 
-# At last
+## At last
 
 After reading this blog, you may now be able to take advantages of lambda function in practical code, you can check your previous code to see if there are any areas that can be optimized.
 

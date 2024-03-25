@@ -1,7 +1,7 @@
 ---
-title: "* and **: small shape, versatile functionality."
+title: "Python Features: Asterisk - small shape, versatile functionality."
 date: 2024-2-28 12:00 +0800
-categories: [Python 高级特性]
+categories: [Python Features]
 tags: [Python]
 ---
 
