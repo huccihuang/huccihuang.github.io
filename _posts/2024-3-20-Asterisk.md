@@ -88,7 +88,7 @@ After talking about packing, let’s look at unpacking.
 
 # Unpacking
 
-* can unpack a sequence and unpack a sequence into several items.
+`*` can unpack a sequence and unpack a sequence into several items.
 
 Through this, we can pass in a list with `*` when passing parameters to the function to achieve the purpose of passing in multiple parameters.
 
@@ -155,3 +155,5 @@ Generally speaking, in addition to mathematical operations, * can also do three 
 After this video, you should now be able to use * flexibly in actual code. You can check your previous code to see if there are ways to optimize it.
 
 If you have any questions, please leave a message in the comment area and I will reply as soon as possible.
+
+Thanks for reading!
