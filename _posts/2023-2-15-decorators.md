@@ -15,7 +15,7 @@ Let us start!
 
 ## Principle of decorators: Take functions as arguments
 
-In Python, functions are first class objects, if you have not heard of this concept before, don't worry. All you need to know is that we can pass functions into other functions as arguments. While this may sound a bit abstract, let's look at a simple example and you will understand it soon.
+In Python, functions are first class objects, if you have not heard of this concept before, never mind, all you need to know is that we can pass functions into other functions as arguments. While this may sound a bit abstract, let's look at a simple example and you will understand it soon.
 
 ```python
 def square(x):
@@ -107,12 +107,6 @@ We can directly pass the function to be decorated to the decorator, and then pas
 
 Now, calling `decorated_square` will print execution time.
 
-让我们来看看怎么使用装饰器。
-
-我们可以直接将要装饰的函数传给装饰器，然后将返回的新函数传给新定义的变量。现在，这个变量 `decorated_square` 就是一个函数，是装饰后的 `square` 。
-
-现在调用 `decorated_square` ，就会先打印一句 `square is running` 。
-
 ```python
 decorated_square = decorator(square)
 result = decorated_square(10)
@@ -147,8 +141,6 @@ print(f'result = {result}')
 ```
 
 
-Putting @decorator above the definition is the same as using the result of the decorator.
-
 Putting on this hat is completely equivalent to defining the decorated function with the original name of the function.
 
 ### Decorators with parameters
@@ -156,7 +148,7 @@ Putting on this hat is completely equivalent to defining the decorated function 
 
 Now, I want to increase the difficulty a bit.
 
-I don't just want the decorator to record the running time of the function, I also need the decorator to measure whether the running time of the function exceeds a threshold. Different functions have different thresholds. For functions with a large amount of computation, the threshold is slightly higher. For functions with a small amount of computation, the threshold is slightly lower. This means that different functions require different decorators because they have different thresholds.
+I don't just want the decorator to record the running time of the function, I also need the decorator to measure whether the running time of the function exceeds a threshold. Different functions have different thresholds. For functions with a large amount of computation, the threshold is higher. For functions with a small amount of computation, the threshold is lower. This means that different functions require different decorators because they have different thresholds.
 
 So do we need to define multiple decorators? No, we don't. We can define a function that defines decorators. Let's call it a decorator generator for now. The decorator generator will generate different decorators based on the parameters. It sounds a bit confusing, but you'll quickly understand it after looking at the example.
 
@@ -176,7 +168,6 @@ def timer(threshold):
     return decorator
 ```
 
-
 Let's try using this decorator generator. Here is an example.
 
 ```python
@@ -195,7 +186,7 @@ Finally, I need to add a little bit about the attributes of decorated functions.
 
 The wrapper returned by the decorator is a replacement for func. Of course, we hope that it will retain the metadata of func, such as doc and name.
 
-Let's see what the name of the wrapper is now.
+Let's see what the name of the `sleep_06` is now.
 
 ```python
 print(sleep_06.__name__)
@@ -204,7 +195,7 @@ print(sleep_06.__name__)
 
 It is undoubtedly the wrapper, because the wrapper does not inherit the meta-attributes of func.
 
-Now let's copy the metadata of func to the wrapper by adding a line of @functools.wraps(func) on the wrapper.
+Now let's copy the metadata of func to the wrapper by adding a line of `@functools.wraps(func)` on the wrapper.
 
 ```python
 import functools
@@ -251,7 +242,7 @@ Third, through decorators, we can extend other people's functions. Imagine that 
 ## At Last
 
 
-If you have any questions, please feel free to leave a comment below and I will reply as soon as possible.
+If you have any questions, please feel free to leave a comment below and I will reply as soon as I see it.
 
 If you found this article helpful, please like and share it with anyone you think might find it useful.
 
