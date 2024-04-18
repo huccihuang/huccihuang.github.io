@@ -138,7 +138,7 @@ def __call__(self, item: str):
     self.items.append(item)
 ```
 
-## Question
+## Exercise
 
 I want to show you a question I encountered before. You can try it in your head or on the editor to verify your understanding of the magic method just mentioned.
 
