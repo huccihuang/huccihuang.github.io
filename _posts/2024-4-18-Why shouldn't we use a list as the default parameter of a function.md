@@ -1,6 +1,6 @@
 ---
 title: "Python Common Mistakes: Why shouldn't we use a list as the default parameter of a function"
-date: 2024-2-15 12:00 +0800
+date: 2024-4-18 12:00 +0800
 categories: [Python Features]
 tags: [Python, decorators]
 ---
