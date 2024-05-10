@@ -1,5 +1,5 @@
 ---
-title: "【设计模式in Python】之策略模式"
+title: "高级工程师都在用的设计模式 in Python ｜ 策略模式"
 date: 2024-5-10 12:00 +0800
 categories: [Design Pattern]
 tags: [Python, design pattern, strategy pattern]
