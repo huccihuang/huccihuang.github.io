@@ -1,5 +1,5 @@
 ---
-title: "高级工程师都在用的设计模式 in Python ｜ 策略模式"
+title: "【设计模式 in Python】策略模式：不要再用一个类装下所有方法了！"
 date: 2024-5-10 12:00 +0800
 categories: [Design Pattern]
 tags: [Python, design pattern, strategy pattern]
