@@ -1,6 +1,6 @@
 ---
 title: "Match Case: 让 80% 的 if 惨遭失业"
-date: 2024-1-4 17:00:00 +0800
+date: 2024-5-18 17:00:00 +0800
 categories: [Python Features]
 tags: [Python]
 ---
