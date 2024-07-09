@@ -1,0 +1,136 @@
+---
+title: "EAFP：先斩后奏的设计思路，异常处理的用武之地，pythonic 的编程哲学"
+date: 2024-7-9 17:00:00 +0800
+categories: [Python Features]
+tags: [Python, EAFP, Programming]
+---
+
+今天分享一个 pythonic 的设计思路，缩写是 EAFP，全称是 easier to ask forgiveness than permission，直译过来是「请求原谅比请求许可更容易」。字面上还是挺费解的，我们来直接看例子。
+
+## 概念说明
+
+我们这里有个字典，包含 name 和 age 两个 key，然后我要写一个函数，用来打印这两个 key，那么这个函数会这样写。
+
+```python
+profile = {'name': 'Tom', 'age': 33}
+
+def print_profile(profile):
+	print(f'This is {profile["name"]}, {profile["age"]} years old.')
+```
+
+但这样写有个小问题，当传入一个不包含 name 和 age 的 key 时，就会报错。
+
+一个常见的改法是这样。
+
+```python
+def print_profile(profile):
+	if 'name' in profile and 'age' in profile:
+	    print(f'This is {profile["name"]}, {profile["age"]} years old.')
+	else:
+	    print('Missing keys!')
+```
+
+这，就是一开始说的请求许可。在一开始先询问是否可以这样做，能做才继续做。
+
+与此对应的是另一种写法，请求原谅。
+
+```python
+def print_profile(profile):
+	try:
+	    print(f'This is {profile["name"]}, {profile["age"]} years old.')
+	except KeyError as e:
+	    print(f'Missing "{e}" key!')
+```
+
+因为请求原谅这个表达实在过于抽象了，我更愿意称为先斩后奏。
+
+那么为什么先斩后奏要优于请求许可呢，有两个理由。
+
+1. 效率更高。在请求许可的例子中，要执行预想的语句前，需要先读取两次对象来进行确认。反观先斩后奏，在执行语句的过程中再发现问题，省掉了预先读取对象。
+2. 可读性更强。如果要在执行一段代码前，先检查所有可能出错的条件，那会需要大量代码用于检查，模糊了主逻辑，不便于阅读。
+
+那么现在，你应该能够明白 EAFP 的意思了。我想再分享几个常见的使用场景。
+
+## 常见场景
+
+### 读取列表索引
+
+比如我们要读取列表的第三个 item。
+
+```python
+def get_third_item(lst):
+	print(lst[2])
+```
+
+为了防止报错，可以在前面加个 if。
+
+```python
+def get_third_item(lst): 
+	if len(lst) >= 3:
+	    print(lst[2])
+```
+
+这样运行前先询问可不可以的，即请求许可。与之相对应的是使用 try except 进行先斩后奏。
+
+```python
+def get_third_item(lst):
+	try:
+	    lst[2]
+    except IndexError as e:
+        print(e)
+```
+
+### 读取文件前先检查是否存在
+
+这是一个没有任何处理直接读取的写法。
+
+```python
+def read_file(filepath):
+	with open(filepath) as f:
+	    print(f.read())
+```
+
+为了防止文件不存在，我们可以加上个 if，这是请求允许的写法。
+
+```python
+def read_file_if(filepath):
+    if os.path.exists(filepath):
+        with open(filepath) as f:
+            print(f.read())
+    else:
+        print('File not exists!')
+```
+
+而先斩后奏的写法则是这样。
+
+```python
+def read_file_try(filepath):
+    try:
+        f = open(filepath)
+    except FileNotFoundError as e:
+        print(e)
+    else:
+        with f:
+            print(f.read())
+```
+
+## 对 try except 的补充
+
+最后我想再补充一下 try except 这个语句。它们的完全体是
+
+```python
+try:
+	...
+except:
+	...
+else:
+	...
+finally:
+	...
+```
+
+Try 表示可能会出错的语句，except 是如果出错了要进入的语句，你也可以在 except 这里加上你希望的特定出错，else 表示没有出错要执行的语句，finally 表示无论有没有出错都要执行的语句。
+
+## 最后
+
+我们讲解了 EAFP 的意思，并说明了如何使用，同时介绍了几个常见的使用场景，最后简单补充了 try except 语句的语法，希望对你有帮助。
