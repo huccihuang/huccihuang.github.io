@@ -1,6 +1,6 @@
 ---
 title: "函数传参是在传什么？"
-date: 2024-7-24 17:00:00 +0800
+date: 2024-7-24 8:00:00 +0800
 categories: [Python Features]
 tags: [Python]
 ---
