@@ -1,5 +1,5 @@
 ---
-title: "函数传参是在传什么？"
+title: "为什么函数可以直接修改列表，但不能修改字符串。"
 date: 2024-7-24 8:00:00 +0800
 categories: [Python Features]
 tags: [Python]
