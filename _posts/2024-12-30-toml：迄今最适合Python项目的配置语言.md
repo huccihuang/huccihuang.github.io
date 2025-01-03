@@ -10,7 +10,6 @@ tags: [Python, toml]
 
 Toml 是目前最适合 Python 项目的配置语言。
 
-
 ## Toml 的语法
 
 Toml 适合 Python主要体现在两点，一是语法非常相似，二是类型完美对应，随着后面的例子你会理解这两点。
@@ -104,12 +103,12 @@ shape = {height = 1, weight = 50}
 
 但大部分情况下，我们的配置是层层叠叠的嵌套表，如果用花括号这种写法就太复杂难看了。
 
-所以会使用另一种写法，toml 中创建表的写法，用方括号括起 table 的名称。比如说我要写我的社交媒体。
+所以会使用另一种写法，toml 中创建表的写法，用方括号括起 table 的名称。比如说我要写我的各个账号的 username。
 
 ```toml
-[social]
-bilibili = 'HucciWritingCode'
-youtube = 'huccicoder'
+[account]
+bilibili = 'hucciB'
+youtube = 'hucciY'
 ```
 
 这样解析的结果 social 所对应的 value 是一个字典，字典的 key 分别是 bilibili 和 youtube。
@@ -121,19 +120,18 @@ youtube = 'huccicoder'
 'sex': 'Female',
 'hobbies': ['coding', 'swimming'],
 'shape': {'height': 1, 'weight': 50},
-'social': {'bilibili': 'HucciWritingCode', 'youtube': 'huccicoder'}}
+'account': {'bilibili': 'hucciB', 'youtube': 'hucciY'}}
 ```
 
 ### 在表中再嵌套表
 
-如果说我想再在这个表里面嵌套，就需要再建立一张表。像这种表里面的表，我们可以用 `.` 来表示。比如说我再增加我的抖音账号，除了抖音账号的名称，我还要说明抖音账号的关注数。
+如果说我想再在这个表里面嵌套，比如说 bilibili 这个 key 所对应的又是一张表，表里面有 username 和 password 两个 key。就要这样写
 
 ```toml
-[social]
-bilibili = 'HucciWritingCode'
-youtube = 'huccicoder'
-tiktok.username = 'HucciWritingCode'
-tiktok.followers = 100
+[account]
+bilibili.username = 'hucciB'
+bilibili.password = 'hucciBPW'
+youtube = 'hucciY'
 ```
 
 这个 `.` 的写法也很符合 Python 的风格。
@@ -145,52 +143,51 @@ tiktok.followers = 100
 'sex': 'Female',
 'hobbies': ['coding', 'swimming'],
 'shape': {'height': 1, 'weight': 50},
-'social': {'bilibili': 'HucciWritingCode',
-           'youtube': 'huccicoder',
-           'tiktok': {'username': 'HucciWritingCode', 'followers': 100}}}
+'account': {'bilibili': {'username': 'hucciB', 'password': 'hucciBPW'},
+            'youtube': 'hucciY'}}
 ```
 
 这个嵌套还可以继续嵌套下去，只要愿意加足够的 `.`。
 
-现在 social 这一项关于 tiktok 有两行，如果说 bilibili youtube 都是两行，那就不太好看，我们可以通过方括号的写法来合并同类项。
+现在 social 这一项关于 bilibili 有两行，如果除了 username 和 password 我还想写什么关注数，网址链接等信息，看起来就会很杂乱。我们可以通过方括号的写法来合并同类项。
 
 ```toml
-[social.tiktok]
-username = 'HucciWritingCode'
-followers = 100
+[account]
+## bilibili.username = 'hucciB'
+## bilibili.password = 'hucciBPW'
+youtube = 'hucciY'
+
+## 创建一张account中的bilibili的表
+[account.bilibili]
+username = 'hucciB'
+password = 'hucciBPW'
 ```
 
-这种写法和刚刚的写法完全等价。
+这两种写法完全等价。
 
-### 字典组成的列表
+### Table group
 
-现在假设要给每一个平台，都用这样的格式说明名称和关注数，用包含字典的列表来写会非常方便。
+再介绍最后一种语法 table group。现在假设要给每一个平台，都用这样的格式说明 username 和 password，用包含字典的列表来写会非常方便。
 
 ```toml
-social = [
-    {platform='bilibili', username='Hucci', followers=1000},
-    {platform='youtube', username='Hucci', followers=100},
-    {platform='tiktok', username='Hucci', followers=10},
+account = [
+    {'platform'= 'bilibili', 'username'= 'hucciB', 'password'= 'hucciBPW'},
+    {'platform'= 'youtube', 'username'= 'hucciY', 'password'= 'hucciYPW'}
 ]
 ```
 
-更 toml 的写法，是用两个方括号来说明是列表中的字典。
+更 toml 的写法，是用两个方括号来说明是列表中的字典，就像这样。
 
 ```toml
-[[social]]
+[[account]]
 platform = 'bilibili'
-username = 'Hucci'
-followers = 1000
+username = 'hucciB'
+password = 'hucciBPW'
 
-[[social]]
+[[account]]
 platform = 'youtube'
-username = 'Hucci'
-followers = 100
-
-[[social]]
-platform = 'tiktok'
-username = 'Hucci'
-followers = 10
+username = 'hucciY'
+password = 'hucciYPW'
 ```
 
 到这里，我们就介绍完了 toml 的所有基本语法。
